@@ -1,0 +1,51 @@
+* { padding: 0; margin: 0; box-sizing: border-box; }
+html { font-size: 62.5%; }
+html, body { height: 100%; font-weight: 300; font-style: normal; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; -webkit-text-size-adjust: 100%; }
+h1, h2, h3, h4, h5 { color: #333; font-family: "Work Sans"; }
+h1 { font-size: 2rem; font-weight: 500; text-transform: uppercase; }
+h2 { font-size: 2rem; font-weight: 400; letter-spacing: -0.05rem; }
+h3 { font-size: 2rem; font-weight: 600; text-transform: uppercase; margin: 2rem 0; }
+h4 { font-size: 1.5rem; text-transform: uppercase; font-weight: 500; margin: 1rem 0; }
+h5 { font-size: 1.5rem; }
+a { color: inherit; text-decoration: none; }
+a:hover {
+  color: #333;
+  color: transparent;
+  text-shadow: 0 0 #333, .08em 0 0 #fff, 0 0, -.08em 0 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+  text-shadow: 0 0 #333, .08em 0 0 #fff, 0 0, -.08em 0 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+  background: -webkit-linear-gradient(#bbb, #bbb) center 1.09em no-repeat;
+  background: linear-gradient(#bbb, #bbb) center 1.09em no-repeat;
+  background-size: 98% 1px;
+}
+.whatBlock strong { font-weight: 500; }
+.container { width: 75%; margin: 0 auto; padding-bottom: 3rem; }
+.header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #eee; padding: 2.5rem 0; margin-bottom: 2.5rem;}
+.recipeListBlock ul { list-style: none; }
+.recipeListBlock li { height: 4rem; }
+.dim { color: #ccc; }
+.whatBlock, .howBlock { margin: 2.5rem 0; }
+.ingredientSectionBlock .ingredient { border-left: 1px solid #ddd; margin-left: 2px; }
+.ingredientSectionBlock { margin: 1.5rem 0; }
+.ingredient { font-size: 2rem; display: flex; font-family: "Work Sans"; letter-spacing: -0.5px; padding: 0.3rem 0; color: #444; }
+.ingredient p { margin: 0; }
+.ingredient .left { flex: 1; text-align: right; white-space: nowrap; }
+.ingredient .right { flex: 2; margin-left: 0.75rem; cursor: pointer; }
+.ingredient.completed { text-decoration: line-through; color: #bbb; }
+.howBlock { font-family: "Work Sans"; font-size: 1.7rem; font-weight: 400; letter-spacing: -0.025rem; }
+.howTextBlock { line-height: 160%; }
+.howTextBlock strong { font-weight: 600; }
+.howTextBlock ol, .howTextBlock ul { margin-left: 2rem; margin-bottom: 1.5rem; }
+.howTextBlock p { margin-top: 1.5rem; margin-bottom: 0; }
+.howTextBlock li { padding-left: 1.5rem; margin: 0.75rem 0; }
+.howTextBlock ul .howTextBlock li,
+.howTextBlock ul .howTextBlock ul,
+.howTextBlock ol .howTextBlock ul,
+.howTextBlock ul .howTextBlock ol,
+.howTextBlock ol .howTextBlock ol { margin-top: 0; margin-bottom: 0; }
+@media only screen and (max-device-width: 480px) {
+  html { font-size: 40%; }
+  body { width: 100%; }
+  .container { width: 90%; }
+  .howBlock { font-size: 1.7rem; }
+  .howTextBlock ul, .howTextBlock ol { margin-left: 5rem; }
+}
