@@ -2,6 +2,10 @@
 
 A react/mobx javascript app for displaying recipes. Recipes are loaded from a static JSON file, so no API server is needed. :)
 
+## build
+
+The demo site currently uses the _master_ branch, but for a *much* smaller build (with very few changes) you can look at the _preact_ branch.
+
 ## the recipe file
 
 - Recipe files are in YAML format with the suffix `.recipe` - example file [here](https://github.com/pearofducks/foodprocessor/blob/master/applePie.recipe)
