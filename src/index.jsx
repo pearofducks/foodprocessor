@@ -1,15 +1,14 @@
-import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { render } from 'react-dom';
+import preact, { render } from 'preact';
+import Router from 'preact-router';
 import { Layout, Recipe, RecipeList } from './components';
 
 const routes = (
-  <Router history={browserHistory}>
-    <Route path='/' component={Layout}>
-      <IndexRoute component={RecipeList} />
-      <Route path="/:name" component={Recipe} />
-    </Route>
-  </Router>
+  <Layout>
+    <Router>
+      <RecipeList path="/" />
+      <Recipe path="/:name" />
+    </Router>
+  </Layout>
 );
 
 render(routes, document.getElementById('root'));

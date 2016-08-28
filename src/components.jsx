@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
+import preact, { Component } from 'preact';
 import { observable, computed, action } from 'mobx';
-import { observer } from 'mobx-react';
-import { Link } from 'react-router';
+import { observer } from 'mobx-observer';
 import marked from 'marked';
 import { recipeStore } from './stores';
 
 @observer
 export class Layout extends Component {
-  componentDidMount() { recipeStore.loadRecipes(); } 
+  componentDidMount() { recipeStore.loadRecipes(); }
   render() {
     return (
       <div>
         <div className="header">
           <h1>
             { recipeStore.currentRecipeSlug
-              ? <Link to="/">foodprocessor | recipes</Link>
+              ? <a href="/">honneffer | food</a>
               : "foodprocessor | recipes"
             }
           </h1>
@@ -28,9 +27,9 @@ export class Layout extends Component {
 
 @observer
 export class Recipe extends Component {
-  componentDidMount() { recipeStore.currentRecipeSlug = this.props.params.name; }
+  componentDidMount() { recipeStore.currentRecipeSlug = this.props.matches.name; }
   render() {
-    if(recipeStore.hasRecipes()) {
+    if(recipeStore.hasRecipes) {
       return (
         <div className="recipeBlock">
         { recipeStore.currentRecipe
@@ -48,23 +47,21 @@ export class Recipe extends Component {
   }
 }
 
-export const IngredientSection = (props) => {
-  return (
+export const IngredientSection = (props) => (
     <div className="ingredientSectionBlock">
     <h4>{props.header}</h4>
-    { Object.keys(props.content).map((k,i) => 
+    { Object.keys(props.content).map((k,i) =>
         <Ingredient key={i} amount={props.content[k]} title={k} />
     )}
     </div>
-  );
-}
+);
 
 export const What = (props) => {
   return (
     <div className="whatBlock">
       <h3>what</h3>
       { Object.keys(props.content).map((k,i) =>
-        typeof(props.content[k]) == 'string' 
+        typeof(props.content[k]) == 'string'
         ? <Ingredient key={i} amount={props.content[k]} title={k} />
         : <IngredientSection key={i} header={k} content={props.content[k]} />
       )}
@@ -72,14 +69,12 @@ export const What = (props) => {
   );
 }
 
-export const How = (props) => {
-  return (
+export const How = (props) => (
     <div className="howBlock">
       <h3>how</h3>
       <div className="howTextBlock" dangerouslySetInnerHTML={{__html: props.content}} />
     </div>
-  );
-}
+);
 
 @observer
 export class RecipeList extends Component {
@@ -91,7 +86,7 @@ export class RecipeList extends Component {
         { recipeStore.recipes.map((recipe,i) =>
             <li key={i}>
               <h2>
-                <Link to={`/${recipe.slug()}`}> {recipe.name} </Link> 
+                <a href={`/${recipe.slug()}`}> {recipe.name} </a>
               </h2>
             </li>
          )}

@@ -1,6 +1,4 @@
-import React from 'react';
 import { observable, computed, autorun, action } from 'mobx';
-import 'whatwg-fetch';
 import marked from 'marked';
 
 class Recipe {
@@ -28,7 +26,7 @@ class RecipeStore {
   @observable currentRecipeSlug = null;
 
   @action loadRecipes() {
-    if( ! this.hasRecipes() ) {
+    if( ! this.hasRecipes ) {
       fetch('/recipes.js')
         .then((response) => response.json())
         .then((json) => {
@@ -39,7 +37,7 @@ class RecipeStore {
     }
   }
 
-  hasRecipes() {
+  @computed get hasRecipes() {
     return this.recipes.length != 0
   }
 

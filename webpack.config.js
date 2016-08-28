@@ -30,8 +30,10 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel', query: {
-          plugins: ['transform-decorators-legacy'],
-          presets: ['es2015','react','stage-1','react-hmre'],
+          plugins: ['transform-decorators-legacy',
+            ["transform-react-jsx", { "pragma": "preact.h" }],
+          ],
+          presets: ['es2015','react','stage-1'],
         }
       },
     ]
